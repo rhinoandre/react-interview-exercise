@@ -3,7 +3,7 @@ import styles from './FriendListApp.css';
 import { connect } from 'react-redux';
 
 import {addFriend, deleteFriend, starFriend} from '../actions/FriendsActions';
-import { FriendList, AddFriendInput } from '../components';
+import { FriendList, AddFriendInput, Pagination } from '../components';
 
 class FriendListApp extends Component {
 
@@ -21,6 +21,7 @@ class FriendListApp extends Component {
         <h1>The FriendList</h1>
         <AddFriendInput addFriend={actions.addFriend} />
         <FriendList friends={friendsById} actions={actions} />
+        <Pagination totalPages={friendsById.length/2} />
       </div>
     );
   }
