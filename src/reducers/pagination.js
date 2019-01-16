@@ -3,10 +3,11 @@ import { initialState as friendlist } from './friendlist';
 
 const initialState = {
   pageNumber: 0,
-  totalPages: friendlist.length
-}
+  totalPages: friendlist.friendsById.length
+};
 
 export default function pagination(state = initialState, {type, pageNumber}) {
+  console.log(state)
   switch(type) {
     case UPDATE_PAGINATION:
       return {
