@@ -16,8 +16,9 @@ export function Pagination(props) {
   );
 }
 
-function createPages({totalPages, page, updatePage}) {
+function createPages({friendsNumber, page, updatePage}) {
   const pages = [];
+  const totalPages = Math.ceil(friendsNumber/2);
   for(let i=0; i<totalPages; i++) {
     pages.push(
       <Page
@@ -33,6 +34,7 @@ function createPages({totalPages, page, updatePage}) {
 }
 
 Pagination.propTypes = {
-  totalPages: PropTypes.number.isRequired,
-  currentPage: PropTypes.number.isRequired
+  friendsNumber: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  updatePage: PropTypes.func.isRequired
 }

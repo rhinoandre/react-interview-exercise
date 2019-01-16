@@ -3,7 +3,7 @@ import { initialState as friendlist } from './friendlist';
 
 const initialState = {
   pageNumber: 0,
-  totalPages: friendlist.friendsById.length
+  friendsNumber: friendlist.friendsById.length
 };
 
 export default function pagination(state = initialState, {type, pageNumber}) {
@@ -17,12 +17,12 @@ export default function pagination(state = initialState, {type, pageNumber}) {
     case ADD_FRIEND:
       return {
         ...state,
-        totalPage: state.totalPage+1
+        friendsNumber: state.friendsNumber+1
       };
     case DELETE_FRIEND:
       return {
         ...state,
-        totalPage: state.totalPage-1
+        friendsNumber: state.friendsNumber-1
       };
     default:
       return state;

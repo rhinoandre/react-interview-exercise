@@ -7,10 +7,14 @@ import { updatePage } from '../actions/PaginationActions';
 import { FriendList, AddFriendInput, Pagination } from '../components';
 
 class FriendListApp extends Component {
+  getCurrentDisplayedFriends(friendsById, pageNumber) {
+    return friendsById.slice(pageNumber*2, pageNumber*2+2);
+  }
+
   render () {
     const {
       friendlist: { friendsById },
-      pagination: { pageNumber },
+      pagination: { pageNumber, friendsNumber },
       addFriend,
       deleteFriend,
       starFriend,
@@ -22,14 +26,13 @@ class FriendListApp extends Component {
       starFriend,
     };
 
-    const totalPages = Math.ceil(friendsById.length/2);
-    const friendsList = friendsById.slice(pageNumber*2, pageNumber*2+2);
+    const friendsList = this.getCurrentDisplayedFriends(friendsById, pageNumber);
     return (
       <div className={styles.friendListApp}>
         <h1>The FriendList</h1>
         <AddFriendInput addFriend={addFriend} />
         <FriendList friends={friendsList} actions={actions} />
-        <Pagination currentPage={pageNumber} totalPages={totalPages} updatePage={updatePage} />
+        <Pagination currentPage={pageNumber} friendsNumber={friendsNumber} updatePage={updatePage} />
       </div>
     );
   }
