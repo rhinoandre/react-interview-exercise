@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function Page({pageNumber}) {
+export default function Page({label, pageNumber, updatePage, ...props}) {
   return (
-    <li>
-      <a>{pageNumber}</a>
+    <li {...props}>
+      <a onClick={() => updatePage(pageNumber)}>{label}</a>
     </li>
   );
 }
