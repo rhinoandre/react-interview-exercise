@@ -3,14 +3,17 @@ import * as types from '../constants/ActionTypes';
 export const initialState = {
   friendsById: [
     {
+      id: 1,
       name: 'Theodore Roosevelt',
       starred: true
     },
     {
+      id: 2,
       name: 'Abraham Lincoln',
       starred: false
     },
     {
+      id: 3,
       name: 'George Washington',
       starred: false
     }
@@ -25,6 +28,7 @@ export default function friends(state = initialState, action) {
         friendsById: [
           ...state.friendsById,
           {
+            id: state.friendsById+1,
             name: action.name
           }
         ],
