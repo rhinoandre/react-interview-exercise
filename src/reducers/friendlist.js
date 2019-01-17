@@ -31,7 +31,7 @@ export default function friends(state = initialState, action) {
         friendsById: [
           ...state.friendsById,
           {
-            id: state.friendsById+1,
+            id: state.friendsById.length+1,
             ...action.friend
           }
         ],
