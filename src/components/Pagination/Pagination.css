@@ -1,0 +1,22 @@
+:local(.pagination) {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 5px 0;
+  color: white;
+}
+
+:local(.pagination li) {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+:local(.pagination li > a) {
+  text-decoration: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PageInput from './PageInput';
+import styles from './Pagination.css';
 
 function previousPage(currentPage, updatePage) {
   if (!isFirstPage(currentPage)) {
@@ -25,11 +26,13 @@ function isLastPage(currentPage, maxPages) {
 export function Pagination({friendsNumber, currentPage, updatePage}) {
   const maxPages = Math.ceil(friendsNumber/2);
   return (
-    <ul>
+    <ul className={styles.pagination}>
       <li>
         <a onClick={() => previousPage(currentPage, updatePage)}>&#60;</a>
       </li>
-       <PageInput maxPages={maxPages} updatePage={updatePage} currentPage={currentPage} /> of {maxPages}
+      <li>
+        <PageInput maxPages={maxPages} updatePage={updatePage} currentPage={currentPage} /> of {maxPages}
+      </li>
       <li>
         <a onClick={() => nextPage(currentPage, maxPages, updatePage)}>&#62;</a>
       </li>

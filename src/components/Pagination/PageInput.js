@@ -40,6 +40,7 @@ export default class PageInput extends Component {
   render() {
     return (
       <input
+          className="pageNumber form-control"
           onChange={this.onChange.bind(this)}
           onKeyPress={this.onKeyPress.bind(this)}
           name="page"
