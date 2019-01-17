@@ -1,36 +1,40 @@
 import React from 'react';
-import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import PageInput from './PageInput';
 
-import Page from './Page';
+function previousPage(currentPage, updatePage) {
+  if (!isFirstPage(currentPage)) {
+    updatePage(currentPage-1);
+  }
+}
 
-export function Pagination(props) {
+function isFirstPage(currentPage) {
+  return currentPage === 0;
+}
+
+function nextPage(currentPage, maxPages, updatePage) {
+  if (!isLastPage(currentPage, maxPages)) {
+    updatePage(currentPage+1);
+  }
+}
+
+function isLastPage(currentPage, maxPages) {
+  return currentPage === maxPages-1;
+}
+
+export function Pagination({friendsNumber, currentPage, updatePage}) {
+  const maxPages = Math.ceil(friendsNumber/2);
   return (
     <ul>
       <li>
-        {"<"}
+        <a onClick={() => previousPage(currentPage, updatePage)}>&#60;</a>
       </li>
-      {createPages(props)}
-      <li>></li>
+       <PageInput maxPages={maxPages} updatePage={updatePage} currentPage={currentPage} /> of {maxPages}
+      <li>
+        <a onClick={() => nextPage(currentPage, maxPages, updatePage)}>&#62;</a>
+      </li>
     </ul>
   );
-}
-
-function createPages({friendsNumber, page, updatePage}) {
-  const pages = [];
-  const totalPages = Math.ceil(friendsNumber/2);
-  for(let i=0; i<totalPages; i++) {
-    pages.push(
-      <Page
-        key={i}
-        label={i+1}
-        pageNumber={i}
-        className={classnames({active: i === page})}
-        updatePage={updatePage}
-      />
-    );
-  }
-  return pages;
 }
 
 Pagination.propTypes = {

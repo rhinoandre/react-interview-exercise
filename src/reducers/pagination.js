@@ -7,7 +7,6 @@ const initialState = {
 };
 
 export default function pagination(state = initialState, {type, pageNumber}) {
-  console.log(state)
   switch(type) {
     case UPDATE_PAGINATION:
       return {
