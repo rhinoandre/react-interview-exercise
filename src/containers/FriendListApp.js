@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import styles from './FriendListApp.css';
 import { addFriend, deleteFriend, starFriend } from '../actions/FriendsActions';
 import { updatePage } from '../actions/PaginationActions';
-import { FriendList, AddFriendInput, Pagination } from '../components';
+import { FriendList, AddFriendForm, Pagination } from '../components';
 
 function getCurrentVisibleFriends(friendsList, pageNumber) {
   return friendsList.slice(pageNumber*2, pageNumber*2+2);
@@ -21,7 +21,7 @@ function FriendListApp({ friendList, pageNumber, friendsNumber, ...actions }) {
   return (
     <div className={styles.friendListApp}>
       <h1>The FriendList</h1>
-      <AddFriendInput addFriend={addFriend} />
+      <AddFriendForm addFriend={addFriend} />
       <FriendList friends={visibleFriends} actions={friendListActions} />
       <Pagination currentPage={pageNumber} friendsNumber={friendsNumber} updatePage={updatePage} />
     </div>

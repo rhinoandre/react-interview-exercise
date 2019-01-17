@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import styles from './AddFriendInput.css';
+import styles from './AddFriendForm.css';
 
-class AddFriendInput extends Component {
+class AddFriendForm extends Component {
 
   render () {
     return (
@@ -39,8 +39,8 @@ class AddFriendInput extends Component {
 
 }
 
-AddFriendInput.propTypes = {
+AddFriendForm.propTypes = {
   addFriend: PropTypes.func.isRequired
 };
 
-export default AddFriendInput
+export default AddFriendForm
