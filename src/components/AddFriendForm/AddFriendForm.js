@@ -17,7 +17,7 @@ class AddFriendForm extends Component {
             placeholder="Type the name of a friend"
             value={this.state.name}
             onChange={this.handleChange.bind(this)} />
-          <Gender />
+          <Gender onGenderChange={this.onGenderChange.bind(this)} />
         </form>
       </section>
     );
@@ -34,10 +34,17 @@ class AddFriendForm extends Component {
     this.setState({ name: e.target.value });
   }
 
+  onGenderChange(e) {
+    this.setState({ gender: e.target.value });
+  }
+
   handleSubmit (e) {
     e.preventDefault();
-    const name = this.state.name.trim();
-    this.props.addFriend(name);
+    const {name, gender} = this.state;
+    this.props.addFriend({
+      name: name.trim(),
+      gender
+    });
     this.setState({ name: '' });
   }
 }
