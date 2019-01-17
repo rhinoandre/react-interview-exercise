@@ -24,7 +24,7 @@ function isLastPage(currentPage, maxPages) {
   return currentPage === maxPages-1;
 }
 
-export function Pagination({friendsNumber, currentPage, updatePage}) {
+export default function Pagination({friendsNumber, currentPage, updatePage}) {
   const maxPages = Math.ceil(friendsNumber/2);
   const previousArrowClass = classnames({
     [styles.disabled]: isFirstPage(currentPage)

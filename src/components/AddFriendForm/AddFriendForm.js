@@ -2,19 +2,22 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './AddFriendForm.css';
+import Gender from './Gender';
 
 class AddFriendForm extends Component {
 
   render () {
     return (
-      <input
-        type="text"
-        autoFocus="true"
-        className={classnames('form-control', styles.addFriendInput)}
-        placeholder="Type the name of a friend"
-        value={this.state.name}
-        onChange={this.handleChange.bind(this)}
-        onKeyDown={this.handleSubmit.bind(this)} />
+      <form onSubmit={this.handleSubmit.bind(this)}>
+        <input
+          type="text"
+          autoFocus="true"
+          className={classnames('form-control', styles.addFriendInput)}
+          placeholder="Type the name of a friend"
+          value={this.state.name}
+          onChange={this.handleChange.bind(this)} />
+        <Gender />
+      </form>
     );
   }
 
@@ -30,11 +33,10 @@ class AddFriendForm extends Component {
   }
 
   handleSubmit (e) {
-    const name = e.target.value.trim();
-    if (e.which === 13) {
-      this.props.addFriend(name);
-      this.setState({ name: '' });
-    }
+    e.preventDefault();
+    const name = this.state.name.trim();
+    this.props.addFriend(name);
+    this.setState({ name: '' });
   }
 
 }
@@ -43,4 +45,4 @@ AddFriendForm.propTypes = {
   addFriend: PropTypes.func.isRequired
 };
 
-export default AddFriendForm
+export default AddFriendForm;
