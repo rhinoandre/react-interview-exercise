@@ -41,6 +41,8 @@ class AddFriendForm extends Component {
   handleSubmit (e) {
     e.preventDefault();
     const {name, gender} = this.state;
+    if (!name) return;
+
     this.props.addFriend({
       name: name.trim(),
       gender
