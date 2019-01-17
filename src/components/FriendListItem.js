@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './FriendListItem.css';
 
-function FriendListItem({ id, name, starred, starFriend,deleteFriend }) {
+function FriendListItem({ id, name, starred, starFriend, deleteFriend }) {
   return (
     <li className={styles.friendListItem}>
       <div className={styles.friendInfos}>

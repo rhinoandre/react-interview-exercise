@@ -8,13 +8,13 @@ class FriendList extends Component {
     return (
       <ul className={styles.friendList}>
         {
-          this.props.friends.map((friend, index) => {
+          this.props.friends.map(({id, name, starred}) => {
             return (
               <FriendListItem
-                key={index}
-                id={index}
-                name={friend.name}
-                starred={friend.starred}
+                key={id}
+                id={id}
+                name={name}
+                starred={starred}
                 {...this.props.actions} />
             );
           })
