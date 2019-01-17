@@ -17,14 +17,23 @@ export default class PageInput extends Component {
       this.setState({ value: event.target.value });
     }
   }
-  
+
   isRightRange(value, maxPages) {
     return value <= maxPages && value > 0;
   }
-  
+
   onKeyPress(event) {
+    this.preventZeroOnBlankField(event);
+
     if (event.key === 'Enter' && this.state.value) {
       this.props.updatePage(this.state.value-1);
+    }
+  }
+
+  preventZeroOnBlankField(event){
+    if (!this.state.value && event.key === "0") {
+      event.preventDefault();
+      event.stopPropagation();
     }
   }
 
