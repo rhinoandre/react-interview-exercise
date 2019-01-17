@@ -3,11 +3,16 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './FriendListItem.css';
 
-function FriendListItem({ id, name, starred, starFriend, deleteFriend }) {
+function FriendListItem({ id, name, starred, gender, starFriend, deleteFriend }) {
   return (
     <li className={styles.friendListItem}>
       <div className={styles.friendInfos}>
-        <div><span>{name}</span></div>
+        <div>
+          <span>{name}</span> - <i className={classnames(styles.icon, {
+            'icon-male': gender === 'm',
+            'icon-female': gender === 'f',
+          })}></i>
+        </div>
         <div>
           <small>xx friends in common</small>
         </div>
@@ -33,6 +38,7 @@ FriendListItem.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   starred: PropTypes.bool,
+  gender: PropTypes.string,
   starFriend: PropTypes.func.isRequired,
   deleteFriend: PropTypes.func.isRequired
 };
