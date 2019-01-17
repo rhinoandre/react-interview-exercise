@@ -13,9 +13,14 @@
   font-weight: bold;
 }
 
+:local(a.disabled) {
+  color: #ccc !important;
+  cursor: not-allowed !important;
+}
+
 :local(.pagination li > a) {
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: white;
   cursor: pointer;
   user-select: none;

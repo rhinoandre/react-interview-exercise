@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import PageInput from './PageInput';
 import styles from './Pagination.css';
 
@@ -25,16 +26,27 @@ function isLastPage(currentPage, maxPages) {
 
 export function Pagination({friendsNumber, currentPage, updatePage}) {
   const maxPages = Math.ceil(friendsNumber/2);
+  const previousArrowClass = classnames({
+    [styles.disabled]: isFirstPage(currentPage)
+  });
+  const nextArrowClass = classnames({
+    [styles.disabled]: isLastPage(currentPage, maxPages)
+  });
+
   return (
     <ul className={styles.pagination}>
       <li>
-        <a onClick={() => previousPage(currentPage, updatePage)}>&#60;</a>
+        <a className={previousArrowClass} onClick={() => previousPage(currentPage, updatePage)}>
+          <i className="glyphicon glyphicon-chevron-left"></i>
+        </a>
       </li>
       <li>
         <PageInput maxPages={maxPages} updatePage={updatePage} currentPage={currentPage} /> of {maxPages}
       </li>
       <li>
-        <a onClick={() => nextPage(currentPage, maxPages, updatePage)}>&#62;</a>
+        <a className={nextArrowClass} onClick={() => nextPage(currentPage, maxPages, updatePage)}>
+        <i className="glyphicon glyphicon-chevron-right"></i>
+        </a>
       </li>
     </ul>
   );
