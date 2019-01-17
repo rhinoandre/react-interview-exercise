@@ -8,16 +8,18 @@ class AddFriendForm extends Component {
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit.bind(this)}>
-        <input
-          type="text"
-          autoFocus="true"
-          className={classnames('form-control', styles.addFriendInput)}
-          placeholder="Type the name of a friend"
-          value={this.state.name}
-          onChange={this.handleChange.bind(this)} />
-        <Gender />
-      </form>
+      <section>
+        <form className={styles.addFriendForm} onSubmit={this.handleSubmit.bind(this)}>
+          <input
+            type="text"
+            autoFocus="true"
+            className={classnames('form-control', styles.addFriendInput)}
+            placeholder="Type the name of a friend"
+            value={this.state.name}
+            onChange={this.handleChange.bind(this)} />
+          <Gender />
+        </form>
+      </section>
     );
   }
 
@@ -38,7 +40,6 @@ class AddFriendForm extends Component {
     this.props.addFriend(name);
     this.setState({ name: '' });
   }
-
 }
 
 AddFriendForm.propTypes = {

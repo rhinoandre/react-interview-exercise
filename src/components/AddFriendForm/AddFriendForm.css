@@ -1,4 +1,9 @@
+:local(.addFriendForm) {
+  display: flex;
+}
+
 :local(.addFriendInput) {
+  width: 78%;
   border-radius: 0;
   border-color: #ABAAAA;
   border-left: 0;

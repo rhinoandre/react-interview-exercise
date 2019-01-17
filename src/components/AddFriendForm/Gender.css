@@ -1,0 +1,21 @@
+:local(.gender input[type="radio"]) {
+  display: none;
+}
+
+:local(.gender) {
+  height: 35px;
+}
+
+:local(.gender label) {
+  --width: 30px;
+  --height: 34px;
+  font-size: 3rem;
+  margin-left: 2px;
+  margin-bottom: 0;
+  width: var(--width);
+  height: var(--height);
+}
+
+:local(.gender input:checked+label) {
+  color: yellow;
+}
