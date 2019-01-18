@@ -17,7 +17,7 @@ class AddFriendForm extends Component {
             placeholder="Type the name of a friend"
             value={this.state.name}
             onChange={this.handleChange.bind(this)} />
-          <Gender onGenderChange={this.onGenderChange.bind(this)} />
+          <Gender onGenderChange={this.onGenderChange.bind(this)} value={this.state.gender} />
         </form>
       </section>
     );
@@ -27,6 +27,7 @@ class AddFriendForm extends Component {
     super(props, context);
     this.state = {
       name: this.props.name || '',
+      gender: this.props.name || ''
     };
   }
 
@@ -47,7 +48,7 @@ class AddFriendForm extends Component {
       name: name.trim(),
       gender
     });
-    this.setState({ name: '' });
+    this.setState({ name: '', gender: '' });
   }
 }
 
