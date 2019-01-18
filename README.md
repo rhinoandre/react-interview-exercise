@@ -1,3 +1,8 @@
+## Friend List
+Allow you to save you friends and star the best ones.
+
+The deployed version of this app can be found [here](https://master.d34fdmxz5a0tx0.amplifyapp.com/).
+
 ## Usage
 
 ```
