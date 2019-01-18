@@ -39,11 +39,11 @@ export default function friends(state = initialState, action) {
     case types.DELETE_FRIEND:
       return {
         ...state,
-        friendsById: state.friendsById.filter((friend) => friend.id !== action.id)
+        friendsById: state.friendsById.filter(friend => friend.id !== action.id)
       };
     case types.STAR_FRIEND:
       let friends = [...state.friendsById];
-      let friend = friends.find((item, index) => index === action.id);
+      let friend = friends.find(friend => friend.id === action.id);
       friend.starred = !friend.starred;
       return {
         ...state,
