@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Gender.css';
 
 export default function Gender({onGenderChange, value}) {
-  console.log(value)
   return (
     <div className={styles.gender}>
       <input id="female" type="radio" name="gender" value="f" onClick={onGenderChange} checked={value === 'f'} />
