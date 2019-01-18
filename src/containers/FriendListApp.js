@@ -10,7 +10,7 @@ function getCurrentVisibleFriends(friendsList, pageNumber) {
   return friendsList.slice(pageNumber*2, pageNumber*2+2);
 }
 
-function FriendListApp({ friendList, pageNumber, friendsNumber, ...actions }) {
+export function FriendListApp({ friendList, pageNumber, friendsNumber, ...actions }) {
   const {
     addFriend,
     updatePage,
