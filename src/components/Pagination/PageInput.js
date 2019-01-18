@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import './PageInput.css';
 
-export default class PageInput extends Component {
+export default class PageInput extends PureComponent {
   state = {
     value: 1
   };

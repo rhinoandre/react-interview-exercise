@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './AddFriendForm.css';
 import Gender from './Gender';
 
-class AddFriendForm extends Component {
+class AddFriendForm extends PureComponent {
 
   render () {
     return (
