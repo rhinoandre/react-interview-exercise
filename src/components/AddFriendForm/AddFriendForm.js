@@ -18,6 +18,9 @@ class AddFriendForm extends PureComponent {
             value={this.state.name}
             onChange={this.handleChange.bind(this)} />
           <Gender onGenderChange={this.onGenderChange.bind(this)} value={this.state.gender} />
+          <button className="btn btn-default" type="submit">
+            <i className="glyphicon glyphicon-plus"></i>
+          </button>
         </form>
       </section>
     );

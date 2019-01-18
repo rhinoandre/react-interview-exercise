@@ -9,13 +9,25 @@
 :local(.gender label) {
   --width: 30px;
   --height: 34px;
-  font-size: 3rem;
+  font-size: 2.8rem;
   margin-left: 2px;
   margin-bottom: 0;
+  background-color: #fff;
   width: var(--width);
   height: var(--height);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+:local(.gender label:hover) {
+  cursor: pointer;
+  background-color: #ccc;
+}
+
+:local(.gender label:last-child) {
+  margin-right: 2px;
 }
 
 :local(.gender input:checked+label) {
-  color: yellow;
+  color: #5C75B0;
 }
