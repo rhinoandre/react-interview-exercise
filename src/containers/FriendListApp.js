@@ -28,9 +28,9 @@ export function FriendListApp({ friendList, pageNumber, friendsNumber, ...action
   );
 }
 
-function mapStateToProps({ friendlist, pagination, ...state}) {
+function mapStateToProps({ friendList, pagination, ...state}) {
   return {
-    friendList: friendlist.friendsById,
+    friendList: friendList.friendsById,
     pageNumber: pagination.pageNumber,
     friendsNumber: pagination.friendsNumber,
     ...state

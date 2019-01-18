@@ -1,4 +1,4 @@
-import friends from './friendlist';
+import friends from './friendList';
 
 describe('FriendsReducers', () => {
   test('should return the default state', () => {
