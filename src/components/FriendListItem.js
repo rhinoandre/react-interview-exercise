@@ -2,16 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './FriendListItem.css';
+import { FEMALE, MALE } from './AddFriendForm/Gender';
+
+function getGenderIcon(gender) {
+  return [
+    ' - ',
+    <i key="1" className={classnames(styles.icon, {
+      'icon-male': gender === MALE,
+      'icon-female': gender === FEMALE,
+    })}></i>
+  ];
+}
 
 function FriendListItem({ id, name, starred, gender, starFriend, deleteFriend }) {
   return (
     <li className={styles.friendListItem}>
       <div className={styles.friendInfos}>
         <div>
-          <span>{name}</span> - <i className={classnames(styles.icon, {
-            'icon-male': gender === 'm',
-            'icon-female': gender === 'f',
-          })}></i>
+          <span>{name}</span>
+          {gender && getGenderIcon(gender)}
         </div>
         <div>
           <small>xx friends in common</small>
