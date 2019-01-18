@@ -13,7 +13,7 @@
   font-weight: bold;
 }
 
-:local(a.disabled) {
+a.disabled {
   color: #ccc !important;
   cursor: not-allowed !important;
 }

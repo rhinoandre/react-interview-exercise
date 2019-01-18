@@ -27,10 +27,10 @@ function isLastPage(currentPage, maxPages) {
 export default function Pagination({friendsNumber, currentPage, updatePage}) {
   const maxPages = Math.ceil(friendsNumber/2);
   const previousArrowClass = classnames({
-    [styles.disabled]: isFirstPage(currentPage)
+    disabled: isFirstPage(currentPage)
   });
   const nextArrowClass = classnames({
-    [styles.disabled]: isLastPage(currentPage, maxPages)
+    disabled: isLastPage(currentPage, maxPages)
   });
 
   return (
